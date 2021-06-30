@@ -6,7 +6,7 @@ void main() {
   test('creates keyboard widget with Alphanumeric type', () {
     final keyboard = VirtualKeyboard(
       type: VirtualKeyboardType.Alphanumeric,
-      onKeyPress: () => null,
+      postKeyPress: (key) => null,
     );
     expect(keyboard.type, VirtualKeyboardType.Alphanumeric);
   });

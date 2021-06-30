@@ -37,7 +37,13 @@ VirtualKeyboardType type
 ```
 ```dart
 // Callback for Key press event. Called with pressed `Key` object.
-Function onKeyPress;
+// will fire before adding pressed key text to controller, if a controller exists
+Function preKeyPress;
+```
+```dart
+// Callback for Key press event. Called with pressed `Key` object.
+// will fire after adding pressed key text to controller, if a controller exists
+Function postKeyPress;
 ```
 ```dart
 // Virtual keyboard height. Default is 300.
@@ -142,7 +148,7 @@ Container(
                 // [A-Z, 0-9]
                 type: VirtualKeyboardType.Alphanumeric,
                 // Callback for key press event
-                onKeyPress: _onKeyPress),
+                postKeyPress: _onKeyPress),
           )
 ```
 
@@ -155,7 +161,7 @@ Container(
                 // [0-9] + .
                 type: VirtualKeyboardType.Numeric,
                 // Callback for key press event
-                onKeyPress: (key) => print(key.text)),
+                postKeyPress: (key) => print(key.text)),
           )
 ```
 
@@ -170,7 +176,7 @@ Container(
                 fontSize: 20,
                 builder: _builder,
                 type: VirtualKeyboardType.Numeric,
-                onKeyPress: _onKeyPress),
+                postKeyPress: _onKeyPress),
           )
 
   /// Builder for keyboard keys.
