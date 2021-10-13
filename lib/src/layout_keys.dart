@@ -107,6 +107,7 @@ const List<List> _defaultEnglishLayout = [
     VirtualKeyboardKeyAction.SwithLanguage,
     '@',
     VirtualKeyboardKeyAction.Space,
+    '-',
     '&',
     '_',
   ]
