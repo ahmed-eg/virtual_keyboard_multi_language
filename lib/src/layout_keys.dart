@@ -1,49 +1,43 @@
 part of virtual_keyboard_multi_language;
 //import '../virtual_keyboard_multi_language.dart';
 
-abstract class VirtualKeyboardLayoutKeys{
-
-  int activeIndex =0;
+abstract class VirtualKeyboardLayoutKeys {
+  int activeIndex = 0;
 
   List<List> get defaultEnglishLayout => _defaultEnglishLayout;
   List<List> get defaultArabicLayout => _defaultArabicLayout;
 
-  List<List> get activeLayout =>  getLanguage(activeIndex);
+  List<List> get activeLayout => getLanguage(activeIndex);
   int getLanguagesCount();
   List<List> getLanguage(int index);
 
-  void switchLanguage(){
-    if((activeIndex+1) == getLanguagesCount())
-      activeIndex =0;
-    else activeIndex++;
+  void switchLanguage() {
+    if ((activeIndex + 1) == getLanguagesCount())
+      activeIndex = 0;
+    else
+      activeIndex++;
   }
-
 }
 
-class VirtualKeyboardDefaultLayoutKeys extends VirtualKeyboardLayoutKeys{
-  
+class VirtualKeyboardDefaultLayoutKeys extends VirtualKeyboardLayoutKeys {
   List<VirtualKeyboardDefaultLayouts> defaultLayouts;
   VirtualKeyboardDefaultLayoutKeys(this.defaultLayouts);
 
   int getLanguagesCount() => defaultLayouts.length;
 
-  List<List> getLanguage(int index){
-
-    switch(defaultLayouts[index]){
+  List<List> getLanguage(int index) {
+    switch (defaultLayouts[index]) {
       case VirtualKeyboardDefaultLayouts.English:
-      return _defaultEnglishLayout;
+        return _defaultEnglishLayout;
       case VirtualKeyboardDefaultLayouts.Arabic:
-      return _defaultArabicLayout;
+        return _defaultArabicLayout;
       default:
     }
     return _defaultEnglishLayout;
   }
-
-
-
 }
 
-  /// Keys for Virtual Keyboard's rows.
+/// Keys for Virtual Keyboard's rows.
 const List<List> _defaultEnglishLayout = [
   // Row 1
   const [
@@ -112,7 +106,6 @@ const List<List> _defaultEnglishLayout = [
   ]
 ];
 
-
 const List<List> _defaultArabicLayout = [
   // Row 1
   const [
@@ -139,6 +132,7 @@ const List<List> _defaultArabicLayout = [
     'ه',
     'خ',
     'ح',
+    'ج',
     'د',
     VirtualKeyboardKeyAction.Backspace
   ],
